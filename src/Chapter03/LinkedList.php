@@ -188,4 +188,36 @@ class LinkedList
         return false;
     }
 
+    /**
+     * Searches and deletes a found node from the nodelist.
+     * Special care must be taken if the node is not the last one in the list : we need to change the next property of
+     * the previous node to the next property of the node to be deleted.
+     * @param string|null $query
+     */
+    public function delete(string $query = NULL)
+    {
+        if ($this->_firstNode) {
+            $previous = NULL;
+            $currentNode = $this->_firstNode;
+
+            while ($currentNode->next !== NULL) {
+                if ($currentNode->data === $query) {
+                    // Check if the found node is the last of the nodelist. If so, just delete the next property of the
+                    // previous node. If not, set the next property of the previous node to the next property of the
+                    // found node, effectively removing it from the list.
+                    if ($currentNode->next === NULL) {
+                        $previous->next = NULL;
+                    } else {
+                        $previous->next = $currentNode->next;
+                    }
+
+                    $this->_totalNodes--;
+                    break;
+                }
+                $previous = $currentNode;
+                $currentNode = $currentNode->next;
+            }
+        }
+    }
+
 }

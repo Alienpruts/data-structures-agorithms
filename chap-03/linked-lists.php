@@ -56,3 +56,9 @@ var_dump($bookTitles->deleteLast());
 
 $bookTitles->display();
 echo SEPERATOR;
+
+// Search and delete a entry from the list.
+$bookTitles->delete("Introduction to PHP Data Structures");
+
+$bookTitles->display();
+echo SEPERATOR;
