@@ -162,4 +162,30 @@ class LinkedList
         return false;
     }
 
+    /**
+     * Deletes the last node of the nodelist, if applicable.
+     * We need to make sure the next property of the second last is set to NULL.
+     * @return bool
+     */
+    public function deleteLast()
+    {
+        if ($this->_firstNode !== NULL){
+            $currentNode = $this->_firstNode;
+            if ($currentNode->next === NULL){
+                $this->_firstNode = NULL;
+            } else {
+                $previousNode = NULL;
+
+                while ($currentNode->next !== NULL) {
+                    $previousNode = $currentNode;
+                    $currentNode = $currentNode->next;
+                }
+                $previousNode->next = NULL;
+                $this->_totalNodes--;
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

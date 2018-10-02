@@ -46,7 +46,13 @@ $bookTitles->display();
 echo SEPERATOR;
 
 // Delete the first entry in the list
-$bookTitles->deleteFirst();
+var_dump($bookTitles->deleteFirst());
+
+$bookTitles->display();
+echo SEPERATOR;
+
+// Delete the last entry in the list
+var_dump($bookTitles->deleteLast());
 
 $bookTitles->display();
 echo SEPERATOR;
