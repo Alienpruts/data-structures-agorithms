@@ -24,3 +24,7 @@ $bookTitles->display();
 $bookTitles->insertAtFirst("Introducing PHP to noobs");
 
 $bookTitles->display();
+
+// Search for a existing title, and a non-existing title.
+var_dump($bookTitles->search("Introducing PHP to noobs")->data);
+var_dump($bookTitles->search("Clever stuff"));

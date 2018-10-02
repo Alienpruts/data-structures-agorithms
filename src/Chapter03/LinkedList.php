@@ -67,4 +67,24 @@ class LinkedList
         return true;
     }
 
+    /**
+     * Search for a node in the linked list.
+     * We need to check if there are any nodes to begin with, and iterate through the list until found.
+     * @param string|null $data
+     * @return bool|ListNode
+     */
+    public function search(string $data = NULL)
+    {
+        if ($this->_totalNodes) {
+            $currentNode = $this->_firstNode;
+            while ($currentNode !== NULL) {
+                if ($currentNode->data === $data){
+                    return $currentNode;
+                }
+                $currentNode = $currentNode->next;
+            }
+        }
+        return false;
+    }
+
 }
