@@ -72,3 +72,10 @@ echo SEPERATOR;
 // Retrieve the 2nd item from the list
 echo $bookTitles->getItemByPosition(2)->data;
 echo SEPERATOR;
+
+// We've made the list Iterable, reverse list again and loop through it.
+$bookTitles->reverse();
+foreach ($bookTitles as $title){
+    echo $title . PHP_EOL;
+}
+
