@@ -144,4 +144,22 @@ class LinkedList
         }
     }
 
+    /**
+     * Deletes the first node of the nodelist, if applicable.
+     * We need to make the second node the first node after removal.
+     * @return bool
+     */
+    public function deleteFirst() {
+        if ($this->_firstNode !== NULL) {
+            if ($this->_firstNode->next !== NULL) {
+                $this->_firstNode = $this->_firstNode->next;
+            } else {
+                $this->_firstNode = NULL;
+            }
+            $this->_totalNodes--;
+            return true;
+        }
+        return false;
+    }
+
 }
