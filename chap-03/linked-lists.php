@@ -68,3 +68,7 @@ $bookTitles->reverse();
 
 $bookTitles->display();
 echo SEPERATOR;
+
+// Retrieve the 2nd item from the list
+echo $bookTitles->getItemByPosition(2)->data;
+echo SEPERATOR;

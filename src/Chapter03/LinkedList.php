@@ -246,4 +246,26 @@ class LinkedList
         }
     }
 
+    /**
+     * Searches and returns a node from the node list by position.
+     * Iterates through node list and return node at position. POSITION DOES NOT START AT 0 !
+     * @param int $position
+     * @return ListNode
+     */
+    public function getItemByPosition(int $position = 0)
+    {
+        $count = 1;
+        if ($this->_firstNode !== NULL){
+            $currentNode = $this->_firstNode;
+            while ($currentNode !== NULL) {
+                if ($count === $position){
+                    return $currentNode;
+                }
+                $count++;
+                $currentNode = $currentNode->next;
+            }
+        }
+
+    }
+
 }
