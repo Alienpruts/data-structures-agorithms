@@ -220,4 +220,30 @@ class LinkedList
         }
     }
 
+    /**
+     * Reverses the list order.
+     * This is implemented by an "in place reverse" : this keeps track of the current, previous and next nodes and
+     * switches them around before repeating the process.
+     */
+    public function reverse()
+    {
+        // Only perform the reverse process if at least two items are found.
+        if ($this->_firstNode !== NULL){
+            if ($this->_firstNode->next !== NULL){
+                $previousNode = NULL;
+                $next = NULL;
+                $currentNode = $this->_firstNode;
+                // Iterate through the list, switch the previous, current and next while iterating.
+                while ($currentNode !== NULL){
+                    $next = $currentNode->next;
+                    $currentNode->next = $previousNode;
+                    $previousNode = $currentNode;
+                    $currentNode = $next;
+                }
+                // Finally, do not forget to set the firstNode.
+                $this->_firstNode = $previousNode;
+            }
+        }
+    }
+
 }

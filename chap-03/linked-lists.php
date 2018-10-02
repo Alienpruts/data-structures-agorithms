@@ -62,3 +62,9 @@ $bookTitles->delete("Introduction to PHP Data Structures");
 
 $bookTitles->display();
 echo SEPERATOR;
+
+// Reverse the list
+$bookTitles->reverse();
+
+$bookTitles->display();
+echo SEPERATOR;
