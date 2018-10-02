@@ -28,3 +28,8 @@ $bookTitles->display();
 // Search for a existing title, and a non-existing title.
 var_dump($bookTitles->search("Introducing PHP to noobs")->data);
 var_dump($bookTitles->search("Clever stuff"));
+
+// Insert a title befor another title
+$bookTitles->insertBefore("Handsome developers", "Programming Intelligence");
+
+$bookTitles->display();

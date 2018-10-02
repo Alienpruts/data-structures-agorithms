@@ -87,4 +87,30 @@ class LinkedList
         return false;
     }
 
+    /**
+     * Inserts a new node before an existing node.
+     * Care must be taken to set the next values of the node before and the searched node itself to match the inserted node
+     * @param string|null $data
+     * @param string|null $query
+     */
+    public function insertBefore(string $data = null, string $query = null)
+    {
+        $newNode = new ListNode($data);
+
+        if ($this->_firstNode) {
+            $previous = NULL;
+            $currentNode = $this->_firstNode;
+            while ($currentNode !== NULL) {
+                if ($currentNode->data === $query) {
+                    $newNode->next = $currentNode;
+                    $previous->next = $newNode;
+                    $this->_totalNodes++;
+                    break;
+                }
+                $previous = $currentNode;
+                $currentNode = $currentNode->next;
+            }
+        }
+    }
+
 }
