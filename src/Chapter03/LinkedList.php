@@ -93,7 +93,7 @@ class LinkedList
      * @param string|null $data
      * @param string|null $query
      */
-    public function insertBefore(string $data = null, string $query = null)
+    public function insertBefore(string $data = NULL, string $query = NULL)
     {
         $newNode = new ListNode($data);
 
@@ -109,6 +109,37 @@ class LinkedList
                 }
                 $previous = $currentNode;
                 $currentNode = $currentNode->next;
+            }
+        }
+    }
+
+    /**
+     * Inserts a new node before an existing node.
+     * Care must be taken to set the next values of the node after and the searched node itself
+     * @param string|null $data
+     * @param string|null $query
+     */
+    public function insertAfter(string $data = NULL, string $query = NULL)
+    {
+        $newNode = new ListNode($data);
+
+        if ($this->_firstNode) {
+            $nextNode = NULL;
+            $currentNode = $this->_firstNode;
+            while ($currentNode !== NULL) {
+                if ($currentNode->data === $query) {
+                    if ($nextNode !== NULL) {
+                        $newNode->next = $nextNode;
+                    }
+                    $currentNode->next = $newNode;
+                    $this->_totalNodes++;
+                    break;
+                }
+                $currentNode = $currentNode->next;
+                // We can only set the next Node if a value exists for next in the current node.
+                if (isset($currentNode->next)) {
+                    $nextNode = $currentNode->next;
+                }
             }
         }
     }

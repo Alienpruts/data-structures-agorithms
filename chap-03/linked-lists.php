@@ -13,7 +13,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $bookTitles = new LinkedList();
 
 // Insert three books
-$bookTitles->insert("Introduction to Algortihms");
+$bookTitles->insert("Introduction to Algorithms");
 $bookTitles->insert("Introduction to PHP Data Structures");
 $bookTitles->insert("Programming Intelligence");
 
@@ -29,7 +29,12 @@ $bookTitles->display();
 var_dump($bookTitles->search("Introducing PHP to noobs")->data);
 var_dump($bookTitles->search("Clever stuff"));
 
-// Insert a title befor another title
+// Insert a title before another title
 $bookTitles->insertBefore("Handsome developers", "Programming Intelligence");
+
+$bookTitles->display();
+
+// Insert a title after another title
+$bookTitles->insertAfter("The complex anatomy of a developer", "Introduction to Algorithms");
 
 $bookTitles->display();
