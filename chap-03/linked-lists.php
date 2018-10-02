@@ -19,3 +19,8 @@ $bookTitles->insert("Programming Intelligence");
 
 // Display data
 $bookTitles->display();
+
+// Insert a new book as the first element of the list.
+$bookTitles->insertAtFirst("Introducing PHP to noobs");
+
+$bookTitles->display();

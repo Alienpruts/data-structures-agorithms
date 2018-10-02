@@ -46,4 +46,25 @@ class LinkedList
         }
     }
 
+    /**
+     * Inserts a node as the first node in the linked list.
+     * We need to take care to set the previous first node as the next value of the inserted node.
+     * @param string|null $data
+     * @return bool
+     */
+    public function insertAtFirst(string $data = NULL)
+    {
+        $newNode = new ListNode($data);
+
+        if ($this->_firstNode === NULL) {
+            $this->_firstNode = &$newNode;
+        } else {
+            $currentFirstNode = $this->_firstNode;
+            $this->_firstNode = &$newNode;
+            $newNode->next = $currentFirstNode;
+        }
+        $this->_totalNodes++;
+        return true;
+    }
+
 }
