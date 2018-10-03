@@ -11,7 +11,7 @@ use App\Chapter03\DoublyLinkedList;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-define("SEPERATOR", PHP_EOL . "**********************************" . PHP_EOL);
+define("SEPARATOR", PHP_EOL . "**********************************" . PHP_EOL);
 
 $bookTitles = new DoublyLinkedList();
 
@@ -23,8 +23,8 @@ $bookTitles->insertBefore("Student yearbook", "Programming Intelligence");
 
 // Display data
 $bookTitles->displayForward();
-echo SEPERATOR;
+echo SEPARATOR;
 
 // Display data backwards
 $bookTitles->displayBackward();
-echo SEPERATOR;
+echo SEPARATOR;
