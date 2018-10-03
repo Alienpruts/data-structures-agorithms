@@ -327,4 +327,14 @@ class LinkedList implements \Iterator
         $this->_currentPosition = 0;
         $this->_currentNode = $this->_firstNode;
     }
+
+
+    /**
+     * Return the size of the list (ie. the number of nodes).
+     * @return int
+     */
+    public function getSize()
+    {
+        return $this->_totalNodes;
+    }
 }
