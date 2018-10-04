@@ -11,10 +11,10 @@ namespace App\Chapter03;
 
 class LinkedList implements \Iterator
 {
-    private $_firstNode = NULL;
-    private $_totalNodes = 0;
-    private $_currentNode = NULL;
-    private $_currentPosition = 0;
+    protected $_firstNode = NULL;
+    protected $_totalNodes = 0;
+    protected $_currentNode = NULL;
+    protected $_currentPosition = 0;
 
     public function insert(string $data = NULL)
     {

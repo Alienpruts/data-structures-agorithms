@@ -15,8 +15,8 @@ use UnderflowException;
 
 class AgentQueueList implements Queue
 {
-    private $limit;
-    private $queue;
+    protected $limit;
+    protected $queue;
 
     /**
      * AgentQueueList constructor.
