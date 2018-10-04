@@ -51,10 +51,16 @@
 
 
 $n = 10;
+$x = 110;
 
 echo "The factor of {$n} is : " .factorial($n) . PHP_EOL;
 
+echo "The Fibonacci number of {$n} is : " . fibonnacci($n) . PHP_EOL;
+
+echo "The Greatest Common Division of {$n} and {$x} is : " . gcd($n, $x) . PHP_EOL ;
+
 echo "Be sure to check the docblock of this file for more explanation!" . PHP_EOL;
+
 
 function factorial(int $n) : int
 {
@@ -66,5 +72,25 @@ function factorial(int $n) : int
 
     // This is the recursive call. Notice how we lower n to eventually reach the base case.
     return $n * factorial($n - 1);
+}
+
+function fibonnacci(int $n) : int
+{
+    if ($n == 0){
+        return 1;
+    } else if ($n == 1) {
+        return 1;
+    } else {
+        return fibonnacci($n - 1) + fibonnacci($n - 2);
+    }
+}
+
+function gcd(int $a, int $b) : int
+{
+    if ($b == 0) {
+        return $a;
+    } else {
+        return gcd($b, $a % $b);
+    }
 }
 
