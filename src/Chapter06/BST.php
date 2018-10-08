@@ -56,7 +56,7 @@ class BST
                     $node = $node->right;
                 // If there is no node on the right side, insert the new node here.
                 } else {
-                    $node->right = new Node($data);
+                    $node->right = new Node($data, $node);
                     $node = $node->right;
                     break;
                 }
@@ -64,7 +64,7 @@ class BST
                 if ($node->left) {
                     $node = $node->left;
                 } else {
-                    $node->left = new Node($data);
+                    $node->left = new Node($data, $node);
                     $node = $node->left;
                     break;
                 }
@@ -119,5 +119,18 @@ class BST
         }
 
         return $node;
+    }
+
+    /**
+     * Remove a node from the BST.
+     * First a search is performed and if found, the node is removed from the tree.
+     * @param int $data
+     */
+    public function remove(int $data)
+    {
+        $node = $this->search($data);
+        if ($node){
+            $node->delete();
+        }
     }
 }

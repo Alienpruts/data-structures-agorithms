@@ -20,6 +20,8 @@ $tree->insert(15);
 $tree->insert(13);
 $tree->insert(36);
 
+$tree->remove(15);
+
 $tree->traverse($tree->root);
 
 // Use the search functionality.
