@@ -11,34 +11,33 @@ namespace App\Chapter06;
 
 class BinaryTree
 {
-    public $root = NULL;
+    public $nodes = [];
 
     /**
      * BinaryTree constructor.
-     * @param null $root
+     * @param array $nodes
      */
-    public function __construct(BinaryNode $node)
+    public function __construct(array $nodes)
     {
-        $this->root = $node;
+        $this->nodes = $nodes;
     }
 
     /**
      * Traverse Binary Tree recursively.
-     * @param BinaryNode $node
+     * @param int $num
      * @param int $level
      */
-    public function traverse(BinaryNode $node, int $level = 0)
+    public function traverse(int $num = 0, int $level = 0)
     {
-        if ($node){
+        if (isset($this->nodes[$num])){
             echo str_repeat("-" ,$level);
-            echo $node->data . PHP_EOL;
+            echo $this->nodes[$num] . PHP_EOL;
 
-            if ($node->right) {
-                $this->traverse($node->right, $level + 1);
-            }
-            if ($node->left) {
-                $this->traverse($node->left, $level + 1);
-            }
+            // We can see that node 0 is parent, while 1 is right, and 2 is left. So in algorithm :
+            // 2 * n + 1 AND 2 * (n + 1).
+            // So for node 0 : right = 2 * 0 + 1 = 1 AND left = 2 * (0 + 1) = 2.
+            $this->traverse(2 * $num + 1, $level + 1);
+            $this->traverse(2 * ($num + 1), $level + 1);
         }
     }
 
