@@ -22,7 +22,14 @@ $tree->insert(36);
 
 $tree->remove(15);
 
-$tree->traverse($tree->root);
+// Traversse the BST.
+$tree->traverse($tree->root, 'pre-order');
+echo PHP_EOL;
+// We could have left out the search mode parameter, since in order is default.
+$tree->traverse($tree->root, 'in-order');
+echo PHP_EOL;
+$tree->traverse($tree->root, 'post-order');
+echo PHP_EOL;
 
 // Use the search functionality.
 echo $tree->search(14) ? "Found" : "Not Found";

@@ -78,20 +78,20 @@ class BST
     /**
      * Recursively traverse the tree and display the left values first (will sort from lowest to highest).
      * @param Node $node
+     * @param string $type
      */
-    public function traverse(Node $node)
+    public function traverse(Node $node, string $type = "in-order")
     {
-        if ($node) {
-            if ($node->left){
-                $this->traverse($node->left);
-            }
-
-            // If there is no left node, display the current node's data.
-            echo $node->data . PHP_EOL;
-
-            if ($node->right){
-                $this->traverse($node->right);
-            }
+        switch($type) {
+            case "in-order":
+                $this->inOrder($node);
+                break;
+            case "pre-order":
+                $this->preOrder($node);
+                break;
+            case "post-order":
+                $this->postOrder($node);
+                break;
         }
     }
 
@@ -131,6 +131,63 @@ class BST
         $node = $this->search($data);
         if ($node){
             $node->delete();
+        }
+    }
+
+    /**
+     * Perform a Pre Order traversal on the BST.
+     * Pre order traversal means that parent node is traversed, then the left child node, followed by right child node.
+     * @param Node $node
+     */
+    public function preOrder(Node $node)
+    {
+        if ($node) {
+            echo $node->data . " ";
+            if ($node->left) {
+                $this->traverse($node->left);
+            }
+            if ($node->right) {
+                $this->traverse($node->right);
+            }
+        }
+    }
+
+    /**
+     * Performs a In Order traversal on the BST.
+     * In order traversal means that the left child node is traversed, then the parent node, followed by the right child
+     * node.
+     * @param Node $node
+     */
+    public function inOrder(Node $node)
+    {
+        if ($node) {
+            if ($node->left) {
+                $this->traverse($node->left);
+            }
+            echo $node->data . " ";
+
+            if ($node->right) {
+                $this->traverse($node->right);
+            }
+        }
+    }
+
+    /**
+     * Performs a Post Order traversal on the BST.
+     * Post Order traversal means that first all left children are traversed, then all right children, followed by the
+     * parent nodes, ending in the root node.
+     * @param Node $node
+     */
+    public function postOrder(Node $node)
+    {
+        if ($node) {
+            if ($node->left) {
+                $this->traverse($node->left);
+            }
+            if ($node->right) {
+                $this->traverse($node->right);
+            }
+            echo $node->data . " ";
         }
     }
 }
